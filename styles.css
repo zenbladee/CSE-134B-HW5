@@ -10,6 +10,7 @@
     --color-button-border: rgb(240, 97, 2);
     --outline-color: rgb(92,42, 9);
     --dark-text: rgb(71,33,1);
+    --light-text: white;
 
     /* Font Stack */
     --font-all: "Times New Roman", Times, serif;
@@ -32,6 +33,7 @@
     --color-button-border: rgb(240, 97, 2);
     --outline-color: rgb(255, 210, 180);
     --dark-text: rgb(71, 33, 1);
+    --light-text: white;
 }
 /* Body Styles */
 body {
@@ -412,4 +414,35 @@ button[type="submit"]:hover, #theme-toggle:hover {
     @view-transition { 
         navigation: none;
     }
+}
+
+/* Component */
+to-do h3 {
+    font-size: 1.25em;
+}
+
+to-do p {
+    font-size: inherit;
+}
+
+to-do button, #toggle-size {
+    font-size: 1.25rem;
+    padding: 0.5rem; 
+}
+
+button[type="button"], #theme-toggle {
+    background-color: var(--color-button);
+    color: var(--dark-text);
+    font: inherit;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: 3px solid var(--color-blocks);
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+button[type="button"]:hover, #theme-toggle:hover {
+    background-color: var(--color-blocks);
+    border: 3px solid var(--color-button);
+    color: var(--light-text);
 }
