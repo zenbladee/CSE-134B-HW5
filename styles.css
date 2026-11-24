@@ -291,8 +291,8 @@ input:focus {
 
 button:focus {
     color: var(--color-text);
-    outline: 3px;
-    outline-style: solid;
+    outline: 3px solid var(--outline-color);
+    outline-offset: 2px;
 }
 
 /* From hardware.html and software.html*/
@@ -387,7 +387,7 @@ button[type="submit"], #theme-toggle {
 button[type="submit"]:hover, #theme-toggle:hover {
     background-color: var(--color-blocks);
     border: 3px solid var(--color-button);
-    color: var(--dark-text);
+    color: var(--color-text);
 }
 
 /* Form with the JavaScript*/
