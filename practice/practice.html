@@ -1,0 +1,41 @@
+<script>
+  // An async function can use await to wait for results.
+  async function loadMessage() {
+    
+    // Run these steps in order. If one throws an error, jump to catch.
+    try {
+      
+        // Send a GET request for sample.json in the same folder as this page.
+        // Wait for the server to return a response before continuing.
+        const response = await fetch("./sample.json");
+        
+        // Even an HTTP error such as 404 returns a response. Check its status.
+        if (!response.ok) {
+            
+            // Stop here and pass the status code to the catch block.
+            throw new Error(`HTTP status ${response.status}`);
+        }
+
+        // Read the response body and parse the JSON into a JavaScript value.
+        const data = await response.json();
+        
+        // Check that message contains text. The ?. lets us check safely
+        // even if the parsed response is null.
+        if (typeof data?.message !== "string") {
+            
+            // Send an unexpected response to the same error handler.
+            throw new Error("Expected a message in the response.");
+        }
+        
+        // The response passed both checks. Show the message in the Console.
+        console.log(data.message);
+    } catch (error) {
+      
+        // Report the failure and its cause, such as a network error or invalid JSON.
+        console.error("Could not load the message.", error);
+    }
+  }
+
+  // Call the function to start the request when the browser runs this script.
+  loadMessage();
+</script>

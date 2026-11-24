@@ -446,3 +446,27 @@ button[type="button"]:hover, #theme-toggle:hover {
     border: 3px solid var(--color-button);
     color: var(--light-text);
 }
+
+/*Theme the Component*/
+to-do {
+    /*Pass a color to a component*/
+    --todo-background: var(--color-blocks);
+    --todo-text: var(--color-text);
+    --todo-outline: var(--outline-color);
+    
+    display: block;
+    background-color: var(--todo-background, var(--color-bg));
+    border-radius: var(--border-rad);
+    padding: var(--padding);
+
+    margin: 1rem 0;
+}
+
+to-do h3, to-do p {
+    color: var(--todo-text, var(--dark-text));
+}
+
+to-do button:focus-visible {
+    outline: solid 3px var(--todo-outline, var(--outline-color));
+    outline-offset: 2px;
+}
