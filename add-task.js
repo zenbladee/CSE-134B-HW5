@@ -67,6 +67,7 @@ class ToDo extends HTMLElement {
 
             //Can click again
             taskButton.disabled = false;
+            taskButton.focus();
         });
 
         /* Add heading, task, butotn, and status to component */
@@ -88,8 +89,12 @@ customElements.define("to-do", ToDo);
 /* External Button */
 const SIZE_KEY = "hw5-todo-size";
 const button = document.querySelector("#toggle-size");
+button.hidden = false;
 const todo = document.querySelector("to-do");
 
+function updateButtonLabel() {
+    button.textContent = `Text size: ${todo.getAttribute("size")}`;
+}
 //Restored choice is retrieved
 let savedSize = null;
 try {
@@ -107,6 +112,7 @@ else {
     //Small is the default size
     todo.setAttribute("size", "small"); 
 }
+updateButtonLabel();
 
 //When clickedd change the size to the opposite of waht it was 
 button.addEventListener("click", () => {
@@ -118,6 +124,7 @@ button.addEventListener("click", () => {
 
     //Set the opposite size
     todo.setAttribute("size", next); 
+    updateButtonLabel();
 
     //Try to save the choice to survive if the page is reloaded
     try {
